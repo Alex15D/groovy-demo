@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="TenantState">
+    <option name="tenants">
+      <list>
+        <TenantInfo name="Zespri_NonProd" url="https://zespri-integration-non-prod.it-cpi004.cfapps.ap11.hana.ondemand.com" tokenUrl="https://zespri-integration-non-prod.authentication.ap11.hana.ondemand.com/oauth/token" clientID="sb-40d89690-a775-4fc9-a972-8a71be298fd1!b354|it!b68" clientSecret="851da0f2-9480-4948-9819-dc293af8978c$EkXjeJekr_GrRqLkkySGhgBXcV7tmSSVd46Tdoo898k=" />
+      </list>
+    </option>
+  </component>
+</project>
