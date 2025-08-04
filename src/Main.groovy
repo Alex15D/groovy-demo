@@ -42,7 +42,7 @@ static void main(String[] args) {
 //    map.each { key, value -> println "$key = $value" }
     def map = [name: 'Alex', age: 30] //等价于：def map = ['name': 'Alex', 'age': 30]
     map.each {
-        println(it)}//testBranch
+        println(it)}
 
 //    map.each {k, v -> $k=1 $v= 2}
 }
