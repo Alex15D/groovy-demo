@@ -70,7 +70,7 @@ class xmlTest {
         root.book[0].attributes()['title'] = 'Groovy in Depth'
 
 
-// 3️⃣ 改：修改第 2 本书的 author 节点内容 List
+// 3️⃣ 改：修改第 2 本书的 author 节点内容 ArrayList
         root.book[1].author[0].value = 'Alex Smith'
 
 // 4️⃣ 增：添加一本新书
