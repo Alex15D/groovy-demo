@@ -67,7 +67,7 @@ class xmlTest {
 
 
 // 2️⃣ 改：修改第 1 本书的 title 属性 Map
-        root.book[0].attributes()['title'] = 'Groovy in Depth'
+        root.book[0].attributes().title = 'Groovy in Depth' //=root.book[0].attributes()['title'] = 'Groovy in Depth'
 
 
 // 3️⃣ 改：修改第 2 本书的 author 节点内容 ArrayList
