@@ -1,7 +1,7 @@
 static void main(String[] args) {
     def str1 = '单引号字符串'
     def str2 = "双引号字符串"
-    def name = 'Alex'
+    String name = 'Alex'
     def str3 = "Hello, ${name}"  // GString（支持变量插值）
 
 //    def s = "SAP CPI"
@@ -42,7 +42,8 @@ static void main(String[] args) {
 //    map.each { key, value -> println "$key = $value" }
     def map = [name: 'Alex', age: 30] //等价于：def map = ['name': 'Alex', 'age': 30]
     map.each {
-        println(it)}//RebaseBranch
+        println(it)
+    }//RebaseBranch
 
 //    map.each {k, v -> $k=1 $v= 2}
 }
