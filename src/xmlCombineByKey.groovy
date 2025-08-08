@@ -90,7 +90,7 @@ class xmlCombineByKey {
         xml.Line.each { line ->
             // 从当前Line节点获取PostedDate子节点的文本内容
             // 使用安全导航操作符 ?. 来避免PostedDate节点不存在时抛出空指针异常
-            // 如果PostedDate节点不存在或文本为空，则使用Elvis操作符 ?: 返回空字符串""，确保postedDateText不为null
+            // 如果PostedDate节点不存在或文本为空，则使用Elvis操作符 ?: 返回空字符串""，确保postedDateText不为null, def x = value ?: defaultValue
             def postedDateText = line.PostedDate?.text() ?: ""
             // 截取PostedDate的年月部分作为月份，防止字符串长度不足做兼容处理
             def postedMonth = postedDateText.length() >= 7 ? postedDateText[0..6] : postedDateText
@@ -120,7 +120,7 @@ class xmlCombineByKey {
                             list.each { line ->
                                 "Line" {
                                     // 使用安全导航操作符 ?. 来避免节点不存在时抛出空指针异常
-                                    // 如果节点不存在或文本为空，则使用Elvis操作符 ?: 返回空字符串""，确保节点值不为null
+                                    // 如果节点不存在或文本为空，则使用Elvis操作符 ?: 返回空字符串""，确保节点值不为null, def x = value ?: defaultValue
                                     "EmployeeFirstName"(line.EmployeeFirstName?.text() ?: "")
                                     "EmployeeLastName"(line.EmployeeLastName?.text() ?: "")
                                     "PaymentType"(line.PaymentType?.text() ?: "")
