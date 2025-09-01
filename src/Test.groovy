@@ -1,5 +1,5 @@
 import groovy.xml.StreamingMarkupBuilder
-import groovy.xml.XmlParser
+import groovy.xml.XmlSlurper
 import groovy.xml.XmlUtil
 
 static void main(String[] args) {
@@ -77,25 +77,23 @@ static void main(String[] args) {
   </Line>
 </document>
 '''
-    Node xml = new XmlParser().parseText(body)
-    Map<String, List<Node>> map = [:].withDefault { [] }
+    def xml = new XmlSlurper().parseText(body)
+    Map map = [:].withDefault { [] }
     String lineKey = ""
     xml.Line.each { line ->
         String PostedDateText = line.PostedDate?.text() ?: ""
-        String PostedMonth = PostedDateText.length()>=7? PostedDateText[0..6]: PostedDateText
-
+        String PostedMonth = PostedDateText.length() >= 7 ? PostedDateText[0..6] : PostedDateText
         lineKey = "${line.EmployeeID?.text() ?: ""}|${line.EmployeeCompanyCode?.text() ?: ""}|${line.TransactionCurrency?.text() ?: ""}|${PostedMonth}"
         map[lineKey] << line
     }
-//println(map)
     def outXml = new StreamingMarkupBuilder().bind {
-        "GroupedTransactions"(attr: "attr") {
+        "GroupedTransactions"(attr: "xmlCombineByKeyAttr") {
             map.each { key, list ->
                 "Group" {
                     "EmployeeID"(key.split("\\|")[0])
-                    "EmployeeCompanyCode"(key.split("\\|")[1])
-                    "TransactionCurrency"(key.split("\\|")[2])
-                    "PostedDate"(key.split("\\|")[3])
+                    "CompanyCode"(key.split("\\|")[1])
+                    "Currency"(key.split("\\|")[2])
+                    "PostedMonth"(key.split("\\|")[3])
                     "Transactions" {
                         list.each { line ->
                             "Line" {
@@ -124,13 +122,15 @@ static void main(String[] args) {
                                 "CompanyCode"(line.EmployeeCompanyCode?.text() ?: "")
                             }
 
-
                         }
                     }
                 }
-            }
 
+
+            }
         }
     }
     println(XmlUtil.serialize(outXml).readLines().findAll { it.trim() }.join("\n"))
+
+
 }
