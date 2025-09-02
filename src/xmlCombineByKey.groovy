@@ -103,6 +103,11 @@ class xmlCombineByKey {
         // 使用StreamingMarkupBuilder构建新的XML结构
         def builder = new StreamingMarkupBuilder()
         def outXml = builder.bind {
+
+            mkp.xmlDeclaration()
+            mkp.declareNamespace(ns: "http://example.com/schema")
+//            mkp.yield xml     //插入已有 XML 树
+
             // 根元素GroupedTransactions，附加一个属性"xmlCombineByKeyAttr"
             "GroupedTransactions"(attr: "xmlCombineByKeyAttr") {
                 // 遍历map中每个key和对应的Line列表
