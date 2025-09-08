@@ -1,4 +1,5 @@
 import groovy.xml.StreamingMarkupBuilder
+import groovy.xml.XmlParser
 import groovy.xml.XmlSlurper
 import groovy.xml.XmlUtil
 
@@ -81,7 +82,7 @@ class xmlCombineByKey {
 '''
 
         // 使用XmlParser将字符串形式的XML解析为Node结构，方便Groovy遍历处理
-        def xml = new XmlSlurper ().parseText(body)
+        def xml = new XmlParser().parseText(body)
 
         // 定义一个Map，键为String，值为Node列表，withDefault保证如果访问不存在的key时自动创建空列表
         Map map = [:].withDefault { [] }
