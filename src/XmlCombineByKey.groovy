@@ -1,9 +1,8 @@
 import groovy.xml.StreamingMarkupBuilder
 import groovy.xml.XmlParser
-import groovy.xml.XmlSlurper
 import groovy.xml.XmlUtil
 
-class xmlCombineByKey {
+class XmlCombineByKey {
     static void main(String[] args) {
         // 输入的XML字符串，模拟从某个来源读取的原始数据
         String body = '''<?xml version="1.0" encoding="UTF-8"?>
