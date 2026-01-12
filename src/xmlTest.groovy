@@ -30,7 +30,7 @@ class xmlTest {
 
 '''
 
-        def root = new XmlSlurper().parseText(xml);
+        def root = new XmlSlurper().parseText(xml)
 //        def firstBook = root.book[0]
 //        println(firstBook.name())
 //        firstBook.attributes()["title"] = "9999999999"
