@@ -158,7 +158,6 @@ class JSONDataTypeConverter {
   ]
 }
 '''
-
         def json  = new JsonSlurper().parseText(body)
         // Process containers
         // 3. Process containers
